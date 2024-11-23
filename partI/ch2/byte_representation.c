@@ -7,6 +7,7 @@ void	show_bytes(byte_pointer start, size_t len);
 void	show_int(int x);
 void	show_float(float x);
 void	show_pointer(void *x);
+void	show_string(char *x, size_t len);
 
 int	main(void)
 {
@@ -16,6 +17,9 @@ int	main(void)
 	printf(" %.1f\n", (float) val);
 	printf(" %p\n", &val);
 	test_show_bytes(val);
+	putchar('\n');
+	printf(" %s\n", "12345");;
+	show_string("12345", 6);
 	return (0);
 }
 
@@ -60,5 +64,11 @@ void	show_float(float x)
 void	show_pointer(void *x)
 {
 	show_bytes((byte_pointer) &x, sizeof (void *));
+	return ;
+}
+
+void	show_string(char *x, size_t len)
+{
+	show_bytes((byte_pointer) x, len);
 	return ;
 }
